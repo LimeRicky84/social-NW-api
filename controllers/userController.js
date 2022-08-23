@@ -49,6 +49,31 @@ module.exports = {
             .catch((err) => res.status(500).json(err))
     },
     addAccomplice(req, res) {
-        {}
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $addToSet: { accomplices: req.params.accompliceId}},
+            { runValidators: true, new: true }
+        )
+            .then((user) =>
+                !user
+                    ? res.status(404).json({ message: "No User with that ID" })
+                    : res.json(user)
+                )
+                .catch((err) => res.status(500).json(err))
+    },
+    deleteAccomplice(req, res) {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $pull: { friends: req.params.friendId } },
+            { new: true }
+        )
+            .then(
+                (user) =>
+          !user
+            ? res.status(404).json({ message: "No User find with this ID!" })
+            : res.json(user)
+            )
+            .catch((err) => res.status(500).json(err));
+
     }
 }
