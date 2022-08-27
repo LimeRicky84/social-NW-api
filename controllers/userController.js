@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Retort, Counter } = require("../models");
 
 module.exports = {
 

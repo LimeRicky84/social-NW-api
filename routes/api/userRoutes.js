@@ -19,8 +19,10 @@ router.route('/:userId')
 .put(updateUser)
 .delete(deleteUser);
 
-router.route('/:userId/accomplices/:accompliceId')
+router.route('/:userId/accomplices')
 .post(addAccomplice)
+
+router.route('/:userId/accomplices/:accompliceId')
 .delete(deleteAccomplice)
 
 module.exports = router
