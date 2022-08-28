@@ -4,10 +4,10 @@ const {
     getRetort,
     getSingleRetort,
     createRetort,
-    // updateRetort,
-    // deleteRetort,
-    // createCounter,
-    // deleteCounter
+    updateRetort,
+    deleteRetort,
+    createCounter,
+    deleteCounter
 } = require('../../controllers/retortController');
 
 router.route('/')
@@ -16,13 +16,13 @@ router.route('/')
 
 router.route('/:retortId')
 .get(getSingleRetort)
-// .put(updateRetort)
-// .delete(deleteRetort)
+.put(updateRetort)
+.delete(deleteRetort)
 
 router.route('/:retortId/counters')
-// .post(createCounter)
+.post(createCounter)
 
 router.route('/:retortId/counters/:counterId')
-// .delete(deleteCounter)
+.delete(deleteCounter)
 
 module.exports = router;
