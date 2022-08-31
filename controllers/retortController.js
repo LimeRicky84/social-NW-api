@@ -60,7 +60,7 @@ module.exports = {
             .then((user) =>
                 !user
                     ? res.status(404).json({ message: "Retort deleted, no user found"})
-                    : res.json({ message: "retort deleted" })
+                    : res.json({ message: "retort deleted from server" })
             )
             .catch((err) => res.status(500).json(err))
     },
